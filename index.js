@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import connectDB from './config/db.js';
+import colors from 'colors'
 // import authorRouter from './routes/author.js';
 
 dotenv.config();

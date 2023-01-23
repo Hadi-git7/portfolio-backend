@@ -8,7 +8,7 @@ try {
         dbName: process.env.DB_NAME
     })
 
-    console.log(`Connected to: ${conn.connection.host}`);
+    console.log(`Connected to: ${conn.connection.host}`.cyan.underline);
 } catch (error) {
     console.log(`Error: ${error.message}`)
     process.exit();
