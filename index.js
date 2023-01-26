@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import connectDB from './config/db.js';
 import colors from 'colors'
-// import authorRouter from './routes/author.js';
+import projectRoutes from './routes/projectRoutes.js';
+
 
 dotenv.config();
 
@@ -17,13 +18,11 @@ if (process.env.NODE_ENV === "development"){
     app.use(morgan('dev'));
 }
 
+//middle ware 
+
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('API is running...')
-})
-
-// app.use('/api/author', authorRouter);
+app.use('/api/project', projectRoutes);
 
 
 app.listen(PORT, console.log(`Server is running in ${process.env.NODE_ENV} on port ${PORT}!!!`))
