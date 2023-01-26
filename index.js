@@ -4,6 +4,10 @@ import morgan from 'morgan';
 import connectDB from './config/db.js';
 import router from './routes/contactRoutes.js';
 import colors from 'colors'
+
+import serviceRoutes from './routes/serviceRoutes.js'
+import announcementRoutes from './routes/announcementRoutes.js'
+import projectRoutes from './routes/projectRoutes.js'
 dotenv.config();
 
 connectDB();
@@ -16,10 +20,17 @@ if (process.env.NODE_ENV === "development") {
     app.use(morgan('dev'));
 }
 
+//middle ware 
 app.use(express.json());
+app.use(express.urlencoded({extended : false}))
+
 
 app.use('/api/contact', router);
 
-app.listen(PORT, () => {
-    console.log(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}!!!`)
-})
+
+// routes
+app.use('/api/services',serviceRoutes)
+app.use('/api/announcements',announcementRoutes)
+app.use('/api/project', projectRoutes)
+
+app.listen(PORT, console.log(`Server is running in ${process.env.NODE_ENV} on port ${PORT}!!!`))
