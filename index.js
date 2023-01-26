@@ -2,25 +2,31 @@ import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import connectDB from './config/db.js';
+import router from './routes/contactRoutes.js';
 import colors from 'colors'
+
 import serviceRoutes from './routes/serviceRoutes.js'
 import announcementRoutes from './routes/announcementRoutes.js'
 import projectRoutes from './routes/projectRoutes.js'
 dotenv.config();
 
-await connectDB();
+connectDB();
 
 const PORT = process.env.PORT || 5000;
 
-const app = new express();
+const app = express();
 
-if (process.env.NODE_ENV === "development"){
+if (process.env.NODE_ENV === "development") {
     app.use(morgan('dev'));
 }
 
 //middle ware 
 app.use(express.json());
 app.use(express.urlencoded({extended : false}))
+
+
+app.use('/api/contact', router);
+
 
 // routes
 app.use('/api/services',serviceRoutes)
