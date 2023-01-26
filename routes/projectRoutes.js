@@ -13,6 +13,7 @@ getProjects,
 
 router.get('/', getProjects);
 
+
 router.get('/:id', getPorjectById);
 
 router.post('/',upload.single("image"),createProject);
