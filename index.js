@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
+
 if (process.env.NODE_ENV === "development") {
     app.use(morgan('dev'));
 }
@@ -23,6 +24,8 @@ if (process.env.NODE_ENV === "development") {
 //middle ware 
 app.use(express.json());
 app.use(express.urlencoded({extended : false}))
+app.use(express.static('uploads'))
+app.use('/uploads', express.static('uploads'));
 
 
 app.use('/api/contact', router);
