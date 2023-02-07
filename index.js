@@ -23,7 +23,6 @@ if (process.env.NODE_ENV === "development") {
 }
 
 //middle ware 
-app.use(express.json());
 app.use(express.urlencoded({extended : false}))
 app.use(express.static('uploads'))
 app.use('/uploads', express.static('uploads'));
