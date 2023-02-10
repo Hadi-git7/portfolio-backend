@@ -1,32 +1,23 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const contactSchema = mongoose.Schema(
-    {
-        adress: {
-            type: String,
-            required: [true, 'Please add an adress']
-        },
-        email: {
-            type: String,
-            required: [true, 'Please add an email']
-        },
-        linkedin: {
-            type: String,
-            required: [true, 'please add linkedin']
-        },
-        instagram: {
-            type: String,
-            required: [true, 'please add instagram']
-        },
-        whatsapp: {
-            type: String,
-            required: [true, 'please add whatsapp']
-        },
-
+  {
+    adress: {
+      type: String,
     },
-    {
-        timestamps: true
-    }
-)
+    linkedin: {
+      type: String,
+    },
+    whatsapp: {
+      type: String,
+    },
+    email: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-export default mongoose.model('Contact', contactSchema)
+export default mongoose.model("Contact", contactSchema);
