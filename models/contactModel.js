@@ -8,10 +8,10 @@ const contactSchema = mongoose.Schema(
     linkedin: {
       type: String,
     },
-    instagram: {
-      type: String,
-    },
     whatsapp: {
+      type: Number,
+    },
+    email: {
       type: String,
     },
   },
