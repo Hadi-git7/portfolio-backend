@@ -9,7 +9,7 @@ const contactSchema = mongoose.Schema(
       type: String,
     },
     whatsapp: {
-      type: Number,
+      type: String,
     },
     email: {
       type: String,
