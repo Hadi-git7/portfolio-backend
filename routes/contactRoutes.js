@@ -7,9 +7,12 @@ import {
 } from "../controllers/contactControllers.js";
 const router = express.Router();
 
-router.route("/").get(getContact);
-router.route("/").post(setContact);
-router.route("/:id").put(updateContact);
-router.route("/:id").delete(deleteContact);
+// Middleware
+import {protect,admin} from '../middleware/authMiddleware.js'
+
+router.route('/').get(getContact)
+router.route('/').post(protect,admin,setContact)
+router.route('/:id').put(protect,admin,updateContact)
+router.route('/:id').delete(protect,admin,deleteContact)
 
 export default router;
