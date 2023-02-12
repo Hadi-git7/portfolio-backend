@@ -12,4 +12,4 @@ router.route('/').post(protect,admin,upload.single("image"),setAbout)
 router.route('/:id').put(protect,admin,upload.single("image"),updateAbout)
 router.route('/:id').delete(protect,admin,deleteAbout)
 
-export default router
+export default router;

@@ -79,11 +79,13 @@ const updateAbout = asyncHandler(async (req,res) =>{
        res.json(`Couldn't find About`)
    }
    else{
-    updatedAbout.title = req.body.title,
-    updatedAbout.text = req.body.text,
-    updatedAbout.image = req.file.path,
-    updatedAbout.save()
-       res.status(200).json(updatedAbout)
+    const updated= await updatedAbout.updateOne({
+         title : req.body.title,
+         text : req.body.text,
+         image : req.file && req.file.path,
+      })
+
+      return res.status(200).json(updatedAbout)
    }
    })
 

@@ -37,14 +37,14 @@ const setService = asyncHandler( async (req,res) =>{
     if(!title || !description){
        res.status(400)
        throw new Error('Please add a text field')
-    }
+    }else{
     const service = await Service.create({
        title:title,
        description:description
     })
 
 
-   res.status(200).json(service)
+   res.status(200).json(service)}
 })
 
 
